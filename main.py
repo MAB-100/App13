@@ -7,8 +7,6 @@ from PyQt6.QtWidgets import QApplication, QGridLayout, QLabel, \
 import sys
 import sqlite3
 
-
-
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -172,6 +170,7 @@ class DeleteDialog(QDialog):
         confirmation_widget.setText("Student deleted successfully")
         confirmation_widget.exec()
 
+
 class InsertDialog(QDialog):
     def __init__(self):
         super().__init__()
@@ -214,8 +213,6 @@ class InsertDialog(QDialog):
         conn.execute("INSERT INTO students (name, course, mobile) VALUES (?, ?, ?)", (name, course, mobile))
         conn.commit()
         conn.close()
-
-
 
 
 app = QApplication(sys.argv)
