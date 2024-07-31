@@ -23,6 +23,7 @@ class MainWindow(QMainWindow):
 
         about_action = QAction("About", self)
         help_menu_item.addAction(about_action)
+        about_action.triggered.connect(self.about)
 
 
         self.table = QTableWidget()
@@ -58,7 +59,11 @@ class MainWindow(QMainWindow):
 
         self.status_bar.addWidget(edit_button)
         self.status_bar.addWidget(delete_button)
-        
+
+    def about(self):
+        dialog = AbputDialog()
+        dialog.exec()
+
     def edit(self):
         dialog = EditDialog()
         dialog.exec()
@@ -83,7 +88,13 @@ class MainWindow(QMainWindow):
         insert_dialog.exec()
         self.load_data()
 
-        
+class AbputDialog(QMessageBox):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("About Student Management System")
+        self.setText("This is a simple student management system")
+        self.setIcon(QMessageBox.Icon.Information)
+
 class EditDialog(QDialog):
     def __init__(self):
         super().__init__()
