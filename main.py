@@ -61,7 +61,7 @@ class MainWindow(QMainWindow):
         self.status_bar.addWidget(delete_button)
 
     def about(self):
-        dialog = AbputDialog()
+        dialog = AboutDialog()
         dialog.exec()
 
     def edit(self):
@@ -88,7 +88,7 @@ class MainWindow(QMainWindow):
         insert_dialog.exec()
         self.load_data()
 
-class AbputDialog(QMessageBox):
+class AboutDialog(QMessageBox):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("About Student Management System")
